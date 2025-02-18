@@ -13,21 +13,21 @@ export async function POST(req: Request) {
     const response = await axios.get(link);
     const html: string = response.data;
     const $ = cheerio.load(html);
-    const pdfLinks: string[] = [];
+    const documentLinks: string[] = [];
 
     $('a[href$=".pdf"], a[href$=".doc"], a[href$=".docx"]').each((_, element) => {
       const href = $(element).attr("href");
       if (href) {
         try {
           const absoluteUrl = new URL(href, link).href;
-          pdfLinks.push(absoluteUrl);
+          documentLinks.push(absoluteUrl);
         } catch {
           throw new Error("Invalid URL found in the webpage.");
         }
       }
     });
 
-    return NextResponse.json({ pdfLinks }, { status: 200 });
+    return NextResponse.json({ documentLinks }, { status: 200 });
   } catch (error: unknown) {
     if (error instanceof Error && error.message === "Invalid URL found in the webpage.") {
       return NextResponse.json({ error: "Invalid URL found in the webpage." }, { status: 400 });
