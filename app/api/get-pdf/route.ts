@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     const $ = cheerio.load(html);
     const pdfLinks: string[] = [];
 
-    $('a[href$=".pdf"]').each((_: number, element:cheerio.Element) => {
+    $('a[href$=".pdf"]').each((_, element) => {
       const href = $(element).attr("href");
       if (href) {
         try {
