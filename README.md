@@ -4,7 +4,7 @@ Grant Bot is a supporting tool designed to assist a grant writer AI in managing 
 
 ## Features
 
-- **PDF Extraction**: Extract and organize information from grant-related PDFs.
+- **Document Extraction**: Extract and organize information from grant-related PDFs and word documents.
 
 ## Installation
 
@@ -12,7 +12,7 @@ To install Grant Bot, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/grant-bot.git
+    git clone https://github.com/Samk104/grant-bot.git
     ```
 2. Navigate to the project directory:
     ```bash
